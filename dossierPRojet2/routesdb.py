@@ -1,3 +1,4 @@
+
 import functools
 import os
 
@@ -13,3 +14,10 @@ def index():
     retourne le contenu de la page index.html
     """
     return render_template("index.html", familles=get_familles(), mois=get_mois(), annee=get_annee())
+@bp.route('/home.affichage', methods=['get','post'])
+def affichage():
+    choix_famille=request.form['choix_famille']
+    choix_annee = request.form['choix_annee']
+    choix_mois = request.form['choix_mois']
+    print("choix_famille", choix_famille, "choix_annee", choix_annee, "choix_mois", choix_mois)
+    return 'page de traitement'
