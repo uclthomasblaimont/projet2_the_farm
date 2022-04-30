@@ -1,91 +1,70 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="/static/css-style/style.css">
-  <script src ="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
-  <!-- 
-  <style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre site web</title>
+    <link rel="stylesheet" href="{{url_for('static', filename=
+        'css-style/style.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+     
+    <style>
 
-    .button {
-      border: 2em;
-      color: #0c0c0c;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 25px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-    .button1 {background-color: #babeba;}
-    </style>-->
-  
+        .button {
+        border: 2em;
+        color: #0c0c0c;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        .button1 {background-color: #babeba;}
+        </style>
 </head>
 <body>
-    
-    <h1>Choix de la population à étudier</h1>
-    <form action="{{url_for('home.affichage')}}" method="post">
-        <label for="choix_famille">choix-famille</label>
-        <select type="select" name="choix_famille" id="choix-famille">
-            {% for famille in familles %}
-            <option>{{famille}}</option>
-            {% endfor %}
-        </select><br/>
-        <label for="choix_mois">mois</label>
-        <select type="select" name="choix_mois">
-            {% for mois in range(1,13) %}
-            <option>{{mois}}</option>
-            {% endfor %}
-        </select><br/>
-        <label for="choix_annee">annee</label>
-        <select type="select" name="choix_annee">
-            {% for a in range(1990, 2020) %}
-            <option>{{a}}</option>
-            {% endfor %}
-        </select>
-        <h2>Choix du graphique à montrer</h2>
-        <!--<select name="choix_graphique">
+
+    <form action="{{url_for('home.index')}}" method="post">
+        <fieldset>
+            <legend>Etude de Population</legend>
+            <h1>Choix de la population à étudier</h1>
+            <label for="choix_famille">choix-famille :</label>
+            <select type="select" name="choix_famille" id="choix-famille" multiple>
+                {% for famille in familles %}
+                <option>{{famille}}</option>
+                {% endfor %}
+            </select>
+                <label for="choix_mois">mois :</label>
+                <select type="select" name="choix_mois">
+                    {% for mois in range(1,13) %}
+                    <option>{{mois}}</option>
+                    {% endfor %}
+                </select>
+                    <label for="choix_annee">annee :</label>
+                    <select type="select" name="choix_annee">
+                        {% for a in range(1990, 2020) %}
+                        <option>{{a}}</option>
+                        {% endfor %}
+                    </select>
+                    <h2>Choix du graphique à montrer</h2>
+                    <!--<select name="choix_graphique">
             <option>A</option>
             <option>B</option>
         </select>-->
-        </br></br>
-        <button class="button button1" type="submit">Button</button>
+            <div>
+                <button class="button button1" type="submit">Button</button>
+                <button class="button button1" type="reset" value="Effacer">Effacer</button>
+            </div>
+        </fieldset>
     </form>
-    <script>var liste= document.getElementsByName("choix_année")
-    alert(liste)
-    </script>
-
-    <h3>Graph</h3>
-    <canvas id="graphique" width="900px" height="400px"></canvas>
-    <script>
-        // l'identifiant est celui du canevas
-        var ctx = document.getElementById('graphique').getContext('2d');
-        // création du graphique
-        var myChart = new Chart(ctx, {
-        type: 'bar',   // le type du graphique
-        data: {        // les données
-            labels: {{ familles | safe }},
-            datasets: [{
-                        label: 'date',
-                        data: {{ annee | safe }},
-                        fill: false,
-                        borderColor: "rgb(75, 192, 192)", 
-                        lineTension: 0.1
-                        }]
-                }, 
-                options: {
-                    reponsive: false
-                }
-            }
-        );
-    </script>
+    <!-- <script>var liste= document.getElementsByName("choix_année")
+alert(liste)
+</script> -->
     <!-- <script>
-        var button= document.getElementsByTagName("button button1")
-    </script> -->
-
-
-    
+    var button= document.getElementsByTagName("button button1")
+</script> -->
 </body>
 </html>
