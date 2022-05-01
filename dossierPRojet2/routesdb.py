@@ -41,9 +41,23 @@ def affichage():
     print("choix_famille", choix_famille, "choix_annee", choix_annee, "choix_mois", choix_mois)
     return render_template("homeaffichage.html", **locals()) """
 
-""" def atester():
+def atester():
     database = sqlite3.connect('test.db')
     cursor = database.cursor()
+    if request.method == 'POST':
+        famille = request.form["famille"]
+        mois = request.form['mois']
+        annee= request.form['annee']
+        graph = request.method['graph']
+        if graph == 'Nombre de velages':
+            famille_choisis = ""
+            if annee == 'Choisissez une année':
+                return render_template("index.html", familles = famille,mois=mois, annee = annee , graph = graph)
+            else:
+                if famille == "Choix famille":
+                    cursor.execute("SELECT date FROM velages WHERE date LIKE '%%/%%/{}'".format(annee))
+                else:
+                    cursor.execute("SELECT date FROM velages WHERE date LIKE '%%/%%/{} AND id IN(SELECT velage_id FROM animaux_velages WHERE animal_id IN (SELECT id FROM animaux WHERE famille_id = (SELECT id FROM familles WHERE nom LIKE '{}')))".format(annee, famille))
     velages = cursor.fetchall()
     dates =[]
     amount = []
@@ -55,7 +69,7 @@ def affichage():
                 amount.append(len(cursor.fetchall()))
         else:
             if v["date"] not in dates:
-                cursor.execute("SELECT date FROM velages WHERE date LIKE '{}' AND id IN(SELECT velage_id FROM animaux_velages WHERE animal_id IN (SELECT id FROM animaux)")
+                cursor.execute("SELECT date FROM velages WHERE date LIKE '{}' AND id IN(SELECT velage_id FROM animaux_velages WHERE animal_id IN (SELECT id FROM animaux WHERE famille_id = (SELECT id FROM familles WHERE nom LIKE '{}')))".format(v['date'], famille))
                 dates.append(v['date'])
                 amount.append(len(cursor.fetchall()))
-    return render_template("index.html", results=[len(velages), annee, famille_choisis], labels = dates, amount = amount) """
+    return render_template("index.html", results=[len(velages), annee, famille_choisis], labels = dates, amount = amount)
