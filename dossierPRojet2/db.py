@@ -1,3 +1,4 @@
+from datetime import date
 import sqlite3
 
 import click
@@ -71,3 +72,5 @@ def get_annee():
     for j in data_tempo:
         dataannee.append(j[2])
     return dataannee
+
+

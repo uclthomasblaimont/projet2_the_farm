@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre site web</title>
-    <link rel="stylesheet" href="{{url_for('static', filename=
-        'css-style/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename=
+        'css/style.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
      
-    <style>
+<!--     <style>
 
         .button {
         border: 2em;
@@ -37,13 +37,13 @@
         footer > fieldset {
             background-color: beige;
         }
-        </style>
+        </style> -->
 </head>
 <body>
-
+    <a href="{{url_for('home.acceuil')}}" method = "post ">acceuil</a>
     <form action="{{url_for('home.index')}}" method="post">
         <fieldset>
-            <legend>Etude de Population</legend>
+            <legend><h2><strong>Etude de Population</strong></h2></legend> 
             <h1>Choix de la population à étudier</h1>
             <label for="choix_famille">choix-famille :</label>
             <select type="select" name="choix_famille" id="choix-famille" multiple>
@@ -63,7 +63,7 @@
                         <option>{{a}}</option>
                         {% endfor %}
                     </select>
-                    <h2>Choix du graphique à montrer</h2>
+                    <h3>Choix du graphique à montrer</h3>
                     <!--<select name="choix_graphique">
             <option>A</option>
             <option>B</option>
@@ -80,14 +80,14 @@ alert(liste)
     <!-- <script>
     var button= document.getElementsByTagName("button button1")
 </script> -->
-<footer>
-    <fieldset>
-        <p><strong>Auteur : </strong> <p>
-        <p>Arthur Soleil</p>
-        <p>Thomas Blaimont</p>
-        <p>Julien</p>
-        <p>Simon</p>
-    </fieldset>
-</footer>
+    <footer>
+        <fieldset>
+            <p><strong>Auteur : </strong> <p>
+            <p>Arthur Soleil</p>
+            <p>Thomas Blaimont</p>
+            <p>Julien</p>
+            <p>Simon</p>
+        </fieldset>
+    </footer>
 </body>
 </html>
