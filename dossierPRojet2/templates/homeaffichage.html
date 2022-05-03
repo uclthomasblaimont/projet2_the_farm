@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    
+    <title>Affichage</title>
+</head>
+<body>
+    <h3>Afficher le Graphique </h3>
+    <p>
+        <center>
+            afficher le graphique correspondant aux données entrées dans index 
+        </center>
+    </p>
+    <!--exemple de graph -->
+    <canvas id='barChart' width="900" height="400"></canvas>
+    <script>
+    var ctx = document.getElementById("barChart").getContext("2d")
+    var barChart = new Chart(ctx,{
+        type: "bar",
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label : " Date - famille ",
+                data : [12, 19, 3, 5, 2, 3],
+                // fill : false,
+                // boderColor : "rgb(75,192,192)",
+                // lineTension : 0.3
+            }]
+        },
+        options: {
+            responsive : false
+        }
+    });
+
+    </script>
+
+    <h1>donnee dans le fichier index: {{choix_famille, choix_annee, choix_mois}}</h1>
+</body>
+</html>
