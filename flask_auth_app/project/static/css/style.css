@@ -1,0 +1,39 @@
+
+button {
+    border: 2em;
+    color: #0c0c0c;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: solid black 2px;
+    }
+button1 {background-color: #babeba;}
+body {
+    background-color:rgb(137, 182, 230);
+}
+
+body > legend {
+    color: rgb(33, 4, 4);
+}
+fieldset {
+    background-color: bisque;
+}
+footer > fieldset {
+    background-color: beige;
+}
+legend{
+    color: #0c0c0c;
+}
+h1{
+    color:rgb(33, 4, 4)
+}
+label {
+    color : black;
+}
+p {
+    color: #0c0c0c;
+}

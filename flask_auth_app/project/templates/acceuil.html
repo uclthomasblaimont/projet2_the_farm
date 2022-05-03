@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Welcome, {{name}}!</h1>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css"> -->
+    <style>
+        .tableau {
+            display: table;
+            width: 960px;
+            margin:0 auto;
+        }
+        .cellule{
+            display: table-cell;
+        }
+        .align-vert{
+            vertical-align: middle;
+            padding: 0 0 0 10px
+        }
+        header{
+            height: 150px;
+        }
+        #logo,#recherche{
+            width: 480px;
+            padding: 0 20px;
+            background-color: #000;
+            color:#fff;
+        }
+        #recherche{
+            text-align: right;
+        }
+
+        #logo p,#logo h1{
+            margin:0;
+        }
+        #logo h1{
+            font-family: 'Oswald',sans-serif;
+            font-size: 2em;
+        }
+        nav{
+            background-color: lightblue;
+            height: 30px;
+        }
+        #menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #menu a {
+            text-decoration: none;
+
+        }
+        #content{
+            width: 640px;
+            padding:20px;
+            background-color:lightyellow;
+        }
+        aside{
+            width: 320px;
+            padding:10px;
+            background-color: lightgreen;
+        }
+        footer{
+            height:30px;
+            background-color: gray;
+            font-size: small;
+            color:#fff
+        }
+        p{
+            color: #000;
+        }
+        h2 {
+            color: #000;
+        }
+    </style>
+    <title>Aceuil</title>
+</head>
+<body>
+    <header class="tableau">
+        <div id="logo" class="cellule align-vert">
+            <p><img src="{{url_for('static', filename='img/la-vache-a-32-millions-deuros-de-bill-gates-1268961.jpg')}}" alt="Logo" width="500"/></p>
+            <h1>La ferme des 3 Chênes</h1> 
+        </div>
+<!--         <div  id="recherche" class="cellule align-vert">
+            <form method="post" action="#">
+                <input type="text" name="search" placeholder="rechercher" value=""/>
+            </form>
+        </div> -->
+    </header>
+    <nav class="tableau">
+        <ul id="menu" class="cellule align-vert">
+            <li><a href="{{url_for('main.formulaire')}}" method="post" >formulaire</a></li>
+  
+        </ul>
+    </nav>
+    <main class="tableau">
+        <div id="content" class="cellule">
+            <h2>Description du projet</h2>
+            <p>mettre la description du projet</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum qui itaque, dolore voluptatibus asperiores perspiciatis, iure, repudiandae error eligendi ad commodi eius necessitatibus vel molestiae dolores. Aut, corporis sed!</p>
+
+        </div>
+        <aside class="cellule">
+            <h3>Bonjour</h3>
+            <p>
+                En définissant seulement le moteur de templates et un système de routes, Flask vous laisse le choix de personnaliser (en ajoutant des packages ou en développant les vôtres)
+                 pour la gestion des formulaires par exemple, vous avez donc la main sur votre code.  
+            </p>
+        </aside>
+    </main>
+    <footer class="tableau">
+        <p class="align-vert ">Crée par Arthur, Thomas, Julien , Simon </p>
+    </footer>
+</body>
+</html>
+{% endblock %}
