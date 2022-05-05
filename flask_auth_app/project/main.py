@@ -146,7 +146,7 @@ def formulaire():
             for element in id_date_restant:
                 vaches_id.append(element[1])
                 for i in pleine_lune_restant:
-                    if int(element[0][3:5]-i[1]) == 0 and abs(int(element[0][:2])-i[0]) <=1:
+                    if int(element[0][3:5])-i[1] == 0 and abs(int(element[0][:2])-i[0]) <=1:
                         vache_pleine_ou_pas[x] +=1
                         break
                 x += 1
@@ -157,7 +157,7 @@ def formulaire():
             try:
                 pourcentage = float(pourcentage)
             except:
-                return render_template('selections.html', familles=familles_liste, mois=liste_mois, annees=annees_liste, graphes=graphes_types, choix_famille=famille, choix_mois= mois, choix_annee=annee, choix_graphes=graph , pas_float=True)
+                return render_template('formulaire.html', familles=familles_liste, mois=liste_mois, annees=annees_liste, graphes=graphes_types, choix_famille=famille, choix_mois= mois, choix_annee=annee, choix_graphes=graph , pas_float=True)
             races = ['Holstein', 'Blanc Bleu Belge', 'Jersey']
             races_nr = [0] * 3
             for type_id in range(3):
