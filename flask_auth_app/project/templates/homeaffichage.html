@@ -20,30 +20,55 @@
             afficher le graphique correspondant aux données entrées dans index 
         </center>
     </p>
-    <!--exemple de graph -->
-    <canvas id='barChart' width="900" height="400"></canvas>
+
+    {% if not pas_float %}
+    {% if choix_graphes %}
+    <h2 style="color:crimson">==> {{ choix_graphes }}</h2>
+    {% if choix_graphes=='Velages en fonction Jours' or choix_graphes=='Pleine Lune' %}
+    <h3>(famille - {{choix_famille}} | mois - {{choix_mois}} | annee - {{choix_annee}}):</h3>
+    {% elif choix_graphes=='Distribution des races' %}
+    <h3>(pourcentage minimal: {{ minpr }}%)</h3>
+    {% endif %}
+    <canvas id="graphique" width="200px" height="80px" style="background-color:#AED6F1"></canvas>
     <script>
-    var ctx = document.getElementById("barChart").getContext("2d")
-    var barChart = new Chart(ctx,{
-        type: "bar",
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label : " Date - famille ",
-                data : [12, 19, 3, 5, 2, 3],
-                // fill : false,
-                // boderColor : "rgb(75,192,192)",
-                // lineTension : 0.3
-            }]
-        },
-        options: {
-            responsive : false
-        }
-    });
-
+	// l'identifiant est celui du canevas
+	var ctx = document.getElementById('graphique').getContext('2d');
+	// création du graphique
+	var myChart = new Chart(ctx, {
+	type: 'bar',   // le type du graphique
+	data: {        // les données
+	    {% if choix_graphes=='Velages en fonction Jours' %}
+        labels: {{ jour_liste }},
+        datasets: [{
+                    label: 'nombre de velages',
+                    data: {{ jours }},
+                    backgroundColor: '#D35400',
+                    hoverBackgroundColor: '#1C2833',
+                   }]
+        {% elif choix_graphes=='Pleine Lune' %}
+        labels: {{ vaches_id }},
+        datasets: [{
+                    label: 'periode de pleine lune',
+                    data: {{ vache_pleine_lune }},
+                    backgroundColor: '#D35400',
+                    hoverBackgroundColor: '#1C2833',
+                   }]
+        {% elif choix_graphes=='Distribution des races' %}
+        labels: ['Holstein', 'Blanc Bleu Belge', 'Jersey'],
+        datasets: [{
+                    label: "nombre d'animaux",
+                    data: {{ nr_races }},
+                    backgroundColor: '#D35400',
+                    hoverBackgroundColor: '#1C2833',
+                   }]
+        {% endif %}
+	       }
+         }
+	);
     </script>
-
     <h1>donnee dans le fichier index: {{famille, date_debut, date_end}}</h1>
+    {% endif %}
+    {% endif %}
 </body>
 </html>
 {% endblock %}

@@ -58,13 +58,47 @@
                     <option>{{famille}}</option>
                     {% endfor %}
                 </select>
-                <label for="date_debut"> start:</label>
+                <select name="mois" id="mois">
+                    <option value="">choix-mois</option>
+                    {% for mois in mois %}
+                    <option value = "{{mois}}">{{mois}}</option>
+                    {% endfor %}
+                </select>
+                <select name="annee" id="annee">
+                    <option value="">choix-annee</option>
+                    {% for annee in annees %}
+                    <option value = "{{annee}}">{{annee}}</option>
+                    {% endfor %}
+                </select><br>
+
+         
+                <h1 style="color:rgb(6, 3, 12)">Choix du graphique à montrer</h1>
+            
+                <!--TEST -->
+                <h3>
+                
+                <label for="graph_type">Graphes:<br></label>
+                <select name="graph_type" id="graph_type">
+                    {% for graph in graphes %}
+                    <option value="{{ graph }}">{{ graph }}</option>
+                    {% endfor %}
+                </select>
+                <br/>
+                <label for="pourcentage">Choix du pourcentage:<br></label>
+                <input type="text" id="pourcentage" name="pourcentage">
+                    {% if pas_float %}
+                    <h5 style="color:red"><i>* Veuillez introduire un pourcentage! *</i></h5>
+                    {% endif %}
+               
+                
+                
+<!--                 <label for="date_debut"> start:</label>
                 <input type="date" name="debut" id="date-debut" value="1990-10-03" min="1990-10-03" max="2020-12-19">
                 <label for="date_end"> à :</label>
-                <input type="date"  name="end" id="date-fin" value="1990-10-03" min="1990-10-03" max="2020-12-19">
+                <input type="date"  name="end" id="date-fin" value="1990-10-03" min="1990-10-03" max="2020-12-19"> -->
 
             
-                <h3>Choix du graphique à montrer</h3>
+                <!-- <h3>Choix du graphique à montrer</h3> -->
                 <!--<select name="choix_graphique">
                 <option>A</option>
                 <option>B</option>
@@ -81,6 +115,7 @@ alert(liste)
     <!-- <script>
     var button= document.getElementsByTagName("button button1")
 </script> -->
+        
     <footer>
         <fieldset>
             <p><strong>Auteur : </strong> <p>
