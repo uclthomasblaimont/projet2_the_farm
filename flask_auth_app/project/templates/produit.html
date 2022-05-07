@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/pfiou.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <title>Produits</title>
+</head>
+
+<body>
+
+<h1 class="letitre">
+    Nos produits<br/>
+    Voici une liste de produits en que nous vous conseillions, ils sont pour la plus part issu du commerce bio et éco responsable ainsi que 100% recyclable et recyclé
+</h1>
+<fieldset style="background-color: black;">
+    <div class="laliste">
+        <div class="elements">
+            <p><img src="{{url_for('static',filename='img/lait.webp')}}" alt="Lait" width="500"/> </p>
+            <p class="titreproduit">Lait</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/Lasagnes.jpg" alt="Lasagnes" width="500" >
+            <p class="titreproduit" style="color: rgb(0, 26, 255);">Lasagnes</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/tracteur.jpg" alt="Tracteur" width="500">
+            <p class="titreproduit">Tracteur</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/lait.webp" alt="lait" width="500">
+            <p class="titreproduit">Lait</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/lait.webp" alt="lait" width="500">
+            <p class="titreproduit">Lait</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/lait.webp" alt="lait" width="500">
+            <p class="titreproduit">Lait</p>
+        </div>
+        <div class="elements">
+            <img src="static/img/lait.webp" alt="lait" width="500">
+            <p class="titreproduit">Lait</p>
+        </div>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+</body>
+</html>
+{% endblock %}

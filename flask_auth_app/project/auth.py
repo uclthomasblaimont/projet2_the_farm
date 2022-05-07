@@ -14,6 +14,9 @@ def login():
 @auth.route('/signup')
 def signup():
     return render_template('signup.html')
+@auth.route('/produit')
+def produit():
+    return render_template('produit.html')
 
 @auth.route('/logout')
 @login_required
@@ -57,4 +60,6 @@ def login_post():
     # login code goes here
     login_user(user, remember=remember)
     return redirect(url_for('main.profile'))
+
+
 

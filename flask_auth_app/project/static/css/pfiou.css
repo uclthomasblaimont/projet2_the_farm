@@ -1,0 +1,51 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+body {
+
+  /* The image used */
+
+  /* background-blend-mode: ligthen;
+  /* Full height */
+
+  background-image: url('https://pin.it/4jRuTR1');
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.laliste {
+    --spacer: 2rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    gap: var(--size-3);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: var(--size-3)
+
+}
+
+.elements {
+    display: grid;
+    gap: var(--size-2);
+    padding: var(--size-3);
+    background: var(--surface-3);
+    border-radius: var(--radius-2);
+
+
+}
+
+.elements > img {
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+
+}
+
+.letitre {
+    color: white;
+    text-align:right;
+
+}

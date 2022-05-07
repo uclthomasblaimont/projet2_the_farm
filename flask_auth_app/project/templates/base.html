@@ -34,6 +34,10 @@
                                 Sign Up
                             </a>
                             {% endif %}
+
+                            <a href="{{url_for('auth.produit')}}" class="navbar-item">
+                                Produit
+                            </a>
                             {% if current_user.is_authenticated %}
                             <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                                 Logout
