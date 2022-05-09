@@ -1,5 +1,5 @@
 @import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/normalize.min.css"; 
 
 body {
 
@@ -11,7 +11,7 @@ body {
   background-image: url('https://pin.it/4jRuTR1');
 
   /* Center and scale the image nicely */
-  background-position: center;
+  background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -41,11 +41,23 @@ body {
     inline-size: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-
 }
 
 .letitre {
     color: white;
-    text-align:right;
+    text-align:center;
+    
 
 }
+.texte {
+    background-color:darkgray;
+    
+
+}
+
+/* h1 {
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width:fit-content;
+} */

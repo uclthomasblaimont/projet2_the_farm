@@ -28,11 +28,16 @@ def profile():
 database = sqlite3.connect('test.db')
 cursor = database.cursor()
 
+##############################
+## on selctionne les nom dans la table famille
+
 familles_liste = []
 familles_liste.append('TOUTES')
 for row in cursor.execute("SELECT nom from familles"):
     familles_liste.append(row[0])
+##########################
 
+###############################
 #on définit les dictionnaires###
 liste_mois = ['TOUS', 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', \
         'Octobre', 'Novembre', 'Decembre']
@@ -45,9 +50,12 @@ mois_nombre_de_jours = {'01':31, '02':29, '03':31, '04':30, '05':31, '06':30,\
 
 ####
 jours_total = [0,31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-for j in range(2, 13):
+for j in range(2, 13):  
     jours_total[j] += jours_total[j-1]
+####################
 
+#########################
+## calcul effecutué pour le pleine lune
 jour_commencement = 11
 mois_commencement = 1
 annee_commencement = 1990
@@ -65,7 +73,7 @@ while int(annee_commencement) <= 2020:
         annee_commencement += 1
         mois_commencement %= 12
     pleine_lune.append((jour_commencement, mois_commencement, annee_commencement))
-
+#########################
 
 annees_liste = []
 for i in cursor.execute("SELECT DISTINCT date from velages"):  #on selectionne les dates à partir de velages

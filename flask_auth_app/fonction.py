@@ -1,3 +1,6 @@
+#fichier utilisée pour tester des fonctions
+
+
 
 import sqlite3
 from flask import current_app , g
@@ -34,6 +37,7 @@ def get_familles():
     famille_tempo = [i[0] for i in famille_tempo]
     return famille_tempo
 
+
 def get_date():
     database = sqlite3.connect('test.db')
     cursor = database.cursor()
@@ -42,7 +46,9 @@ def get_date():
     for i in cursor:
         dates_tempo.append(i[0])
     return dates_tempo
-def pleine_lune():
+
+
+""" def pleine_lune():
     jour_commencement = 11
     mois_commencement = 1
     annee_commencement = 1990
@@ -61,5 +67,5 @@ def pleine_lune():
             mois_commencement %= 12
         pleine_lune.append((jour_commencement, mois_commencement, annee_commencement))
 
-    return pleine_lune
+    return pleine_lune """
 

@@ -31,12 +31,12 @@
     {% endif %}
     <canvas id="graphique" width="200px" height="80px" style="background-color:#AED6F1"></canvas>
     <script>
-	// l'identifiant est celui du canevas
+	// canevas pour chart.js
 	var ctx = document.getElementById('graphique').getContext('2d');
 	// création du graphique
 	var myChart = new Chart(ctx, {
-	type: 'bar',   // le type du graphique
-	data: {        // les données
+	type: 'bar',   // graphique en bar
+	data: {        // les données en fonction du graphiques demandé par l'utilisateur
 	    {% if choix_graphes=='Velages en fonction Jours' %}
         labels: {{ jour_liste }},
         datasets: [{
@@ -66,7 +66,6 @@
          }
 	);
     </script>
-    <h1>donnee dans le fichier index: {{famille, date_debut, date_end}}</h1>
     {% endif %}
     {% endif %}
 </body>
